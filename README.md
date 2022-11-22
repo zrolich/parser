@@ -1,1 +1,3 @@
 # parser
+
+run `pod install`
