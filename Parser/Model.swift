@@ -22,8 +22,6 @@ class AllNewsDetails: Mappable {
         totalResults <- map ["totalResults"]
         articles <- map ["articles"]
     }
-    
-   
 }
 
 
@@ -32,8 +30,8 @@ class Article: Mappable {
     var urlToImage : String?
     
     required init?(map: Map) {
-
-        }
+        
+    }
     
     func mapping(map: Map) {
         title <- map ["title"]

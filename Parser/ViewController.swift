@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .white
-        tableView.register(NewsViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(NewsViewCell.self, forCellReuseIdentifier: String(describing: NewsViewCell.self))
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -69,7 +69,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NewsViewCell.self), for: indexPath) as! NewsViewCell
         
         cell.textLabel?.text = newsArray[indexPath.row].title
         
