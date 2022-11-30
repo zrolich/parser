@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         
         Alamofire.request(apiURL,method: .get, encoding: JSONEncoding.default).responseObject{(response: DataResponse<AllNewsDetails>) in
             
-            if case let newArticles? = (response.result.value?.articles){
+            if let newArticles = (response.result.value?.articles){
                 self.newsArray = newArticles
             }
             
@@ -73,7 +73,7 @@ extension ViewController: UITableViewDataSource {
         
         cell.textLabel?.text = newsArray[indexPath.row].title
         
-        if case let url? = newsArray[indexPath.row].urlToImage  {
+        if let url = newsArray[indexPath.row].urlToImage  {
             let imageURL = URL(string: url)
             cell.imageView?.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { result in
                 cell.setNeedsLayout()
